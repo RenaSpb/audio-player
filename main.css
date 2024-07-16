@@ -2,9 +2,8 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
 }
 
 .container {
@@ -13,7 +12,6 @@ body {
     position: relative;
     text-align: center;
     color: white;
-    height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -23,82 +21,51 @@ body {
 .start-screen {
     width: 100%;
     max-width: 1280px;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     margin: 0 auto;
     background: url(shelter/gradient.png),
     radial-gradient(100% 115.42% at 0% 0%, #5B483A 0%, #262425 100%);
     background-blend-mode: overlay;
 }
 
-.start-screen-content {
-    margin-top: 180px;
-    padding-left: 40px;
-    padding-right: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.start-screen-left {
-    padding-top: 100px;
-    max-width: 460px;
-    flex: 1;
-    text-align: left;
-}
-
-.start-screen-left h2 {
-    max-width: 310px;
-    font-weight: 400;
-    font-size: 44px;
-    line-height: 57.2px;
-    color: #FFFFFF;
-    font-family: Georgia, sans-serif;
-    margin: 0;
-}
-
-.start-screen-left p {
-    color: #CDCDCD;
-    font-family: Arial, sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    margin: 42px 0 0 0;
-    line-height: 24px;
-}
-
-.start-screen-left button {
-    margin-top: 42px;
-    width: 207px;
-    height: 52px;
-    border-radius: 100px;
-    background-color: #F1CDB3;
-    border: none;
-    cursor: pointer;
-    font-family: Georgia, sans-serif;
-    font-size: 17px;
-    text-align: center;
-    line-height: 22.1px;
-    color: black;
-}
-
-.start-screen-left button:hover {
-    background-color: #FDDCC4;
-    transition: background-color 0.3s ease;
-}
-
-.start-screen-right {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.start-screen-dog {
-    width: 54.53%; /* 698px / 1280px */
-    height: auto;
+.start-screen::before, .pets::before, .donation::before, .footer::before {
+    content: '';
     position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
     bottom: 0;
-    right: 40px;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    z-index: -1;
+}
+
+.footer {
+    width: 100%;
+    max-width: 1280px;
+    position: relative;
+    overflow: visible;
+    margin: 0 auto;
+    height: 350px;
+    background: url('shelter/gradient.png'),
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%),
+    #211F20;
+    background-blend-mode: overlay, normal, normal;
+}
+
+.start-screen::before {
+    background: radial-gradient(100% 115.42% at 0% 0%, #5B483A 0%, #262425 100%);
+}
+
+.footer::before {
+    background: radial-gradient(110.67% 538.64% at 5.73% 50%, #473426 0%, #1A1A1C 100%)
+}
+
+.pets::before, .donation::before {
+    background: #F6F6F6;
 }
 
 header {
@@ -112,13 +79,15 @@ header {
     padding-right: 40px;
 }
 
-.header-left {
+.logo {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    text-decoration: none;
+    color: inherit;
 }
 
-.header-left h1 {
+.logo h1 {
     margin: 0;
     color: #F1CDB3;
     font-family: Georgia, sans-serif;
@@ -128,7 +97,7 @@ header {
     letter-spacing: 0.055em;
 }
 
-.header-left p {
+.logo p {
     font-family: Arial, sans-serif;
     font-weight: 400;
     font-size: 13px;
@@ -136,7 +105,7 @@ header {
     margin: 10px 0 0 0;
 }
 
-.header-right {
+.header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -148,24 +117,132 @@ header {
     line-height: 160%;
 }
 
-.header-right a {
+.start-screen-content {
+    margin-top: 180px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-screen-not-only {
+    padding-top: 100px;
+    max-width: 460px;
+    flex: 1;
+    text-align: left;
+}
+
+.start-screen-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about, .help, .donation {
+    width: 100%;
+    max-width: 1280px;
+}
+
+.about-content{
+    padding: 80px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+
+.about-texts{
+    width: 430px;
+    height: 380px;
+    margin-top: 14px;
+}
+
+.pets, .donation {
+    position: relative;
+}
+
+.pets-content {
+    height: 697px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 40px 100px 40px;
+}
+
+.pets-slider {
+    width: 1200px;
+    height: 435px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cards-group {
+    display: flex;
+    gap: 90px;
+    margin: 0 53px;
+}
+
+.card {
+    width: 270px;
+    height: 435px;
+    background-color: #FAFAFA;
+}
+
+.primary, .primary-2 {
+    margin-top: 42px;
+    padding: 15px 45px;
+    gap: 10px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    font-family: Georgia, sans-serif;
+    font-size: 17px;
+    text-align: center;
+    line-height: 22.1px;
+    color: #292929;
+    transition: background-color 0.3s ease;
+}
+
+.primary {
+    background-color: #F1CDB3;
+}
+
+.primary-2 {
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+    background-color: #ffffff;
+    margin-top: 0;
+}
+
+.svg-button {
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    border-radius: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+    transition: background-color 0.3s ease;
+}
+
+.header a {
     color: #CDCDCD;
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
 }
 
-.header-right a:hover {
-    color: #FAFAFA;
-}
-
-.header-right a.active {
+.header a.active {
     color: #FAFAFA;
     cursor: default;
     pointer-events: none;
 }
 
-.header-right a.active::after {
+.header a.active::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -175,11 +252,256 @@ header {
     bottom: -2px;
 }
 
-.about {
+.start-screen-not-only h2 {
+    max-width: 310px;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 57.2px;
+    color: #FFFFFF;
+    font-family: Georgia, sans-serif;
+    margin: 0;
+}
+
+.start-screen-not-only p {
+    color: #CDCDCD;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    margin: 42px 0 0 0;
+    line-height: 24px;
+}
+
+.start-screen-dog {
+    width: 54.53%; /* 698px / 1280px */
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+}
+
+.about-texts h3, .pets h3, .help h3, .donation h3, footer h3 {
+    font-family: Georgia, sans-serif;
+    font-weight: 400;
+    height: 90px;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    margin: 0;
+}
+
+.about-texts h3, .pets h3, .help h3, .donation h3 {
+    color: #545454;
+}
+
+.footer h3 {
+    color: #FFFFFF;
+}
+
+.about-texts h3 {
+    padding-right: 60px;
+    width: 370px;
+}
+
+.donation h3 {
+    width: 300px;
+}
+
+.footer h3, .donation h3, .about-texts h3  {
+    text-align: left;
+}
+
+.donation h5 {
+    font-family: 'Georgia', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #545454;
+    text-align: left;
+}
+
+.about-texts p {
+    text-align: justify;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 25px;
+    margin-bottom: 0;
+    line-height: 160%;
+    color: #4C4C4C;
+}
+
+.pets h3 {
+    max-width: 400px;
+    margin-top: 0;
+}
+
+.card p {
+    font-family: 'Georgia', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.06em;
+    color: #545454;
+    margin: 30px 0;
+}
+
+.primary:hover {
+    background-color: #FDDCC4;
+}
+
+.header a:hover {
+    color: #FAFAFA;
+}
+
+.svg-button:hover {
+    background-color: #F1CDB3;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:hover .primary-2 {
+    background-color: #F1CDB3;
+}
+
+.help-content {
+    padding: 80px 40px 100px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.help-list {
+    width: 1026px;
+    padding: 60px 87px 0 87px;
+    display: flex;
+    gap: 55px 120px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.help-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.help-item p {
+    font-family: 'Georgia', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #545454;
+}
+
+.help h3 {
+    max-width: 308px;
+    margin-top: 0;
+}
+
+.donation-content {
+    width: 915px;
+    height: 282px;
+    padding: 80px 182px 100px 183px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.donation-texts {
+    width: 380px;
+    height: 282px;
+}
+
+.card-area {
+    width: 349px;
+    height: 43px;
+    background: #F1CDB3;
+    border-radius: 9px;
+    border: none;
+}
+
+.card-area h4 {
+    font-family: 'Georgia', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #545454;
+}
+
+.card-area a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     width: 100%;
-    max-width: 1280px;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.donation-content p {
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: left;
+    color: #B2B2B2;
+}
+.footer-content {
+    width: 1200px;
+    height: 310px;
+    padding: 40px 40px 0 40px;
+    display: flex;
+    justify-content: center;
+    gap: 160px;
+}
+
+.footer-contacts, .footer-locations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 16px;
+    height: 234px;
+}
+
+.footer-locations {
+    width: 302px;
+}
+
+.footer-contacts {
+    width: 279px;
+
+}
+
+.footer h4 {
+    font-family: 'Georgia', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+    color: #F1CDB3;
+    margin: 0;
+}
+
+.contact-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+    color: #f5efef;
 }
