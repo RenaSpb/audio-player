@@ -1,11 +1,15 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
 body {
-    font-family: Calibri, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url("audio-player/photos/10.jpg");
+    background-image: url("audio-player/photos/100.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -16,8 +20,10 @@ body {
     box-shadow: 10px 10px 10px rgba(1,1,0,0.1);
     display: flex;
     flex-direction: column;
-    height: 50vh;
+    height: 60vh;
     overflow: hidden;
+    margin-bottom: auto;
+    margin-top: 10%;
 }
 
 .player-image {
@@ -36,6 +42,16 @@ body {
 
 .controls {
     padding-bottom: 10px;
+    gap: 10%;
+}
+
+.controls .material-symbols-outlined:hover {
+    cursor: pointer;
+}
+
+.controls .material-symbols-outlined {
+    font-size: 36px;
+    line-height: 1;
 }
 
 .track-info {
@@ -86,4 +102,40 @@ button {
     justify-content: space-between;
     font-size: 12px;
     color: #888;
+}
+
+.footer {
+    background-color: #b6c6ba;
+    color: #353333;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-link,
+.footer-course-link {
+    color: #353333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-link:hover,
+.footer-course-link:hover {
+    text-decoration: underline;
+}
+
+.footer-year {
+    font-size: 14px;
+}
+
+.footer-course-logo {
+    height: 30px;
+    vertical-align: middle;
 }

@@ -18,10 +18,9 @@
             <p class="track-artist">Исполнитель</p>
         </div>
         <div class="controls">
-            <span class="material-symbols-outlined">skip_previous</span>
-            <span class="material-symbols-outlined">play_circle</span>
-            <span class="material-symbols-outlined">pause_circle</span>
-            <span class="material-symbols-outlined">skip_next</span>
+            <span id="skip-previous" class="material-symbols-outlined">skip_previous</span>
+            <span id="play" class="material-symbols-outlined">play_circle</span>
+            <span id="skip-next" class="material-symbols-outlined">skip_next</span>
         </div>
         <div class="progress-bar">
             <div class="progress"></div>
@@ -32,6 +31,15 @@
         </div>
     </div>
 </div>
+<footer class="footer">
+    <div class="footer-content">
+        <span class="footer-year">© 2024</span>
+        <a href="https://rs.school/courses/javascript-preschool-ru" target="_blank" class="footer-course-link">
+            <img src="audio-player/photos/rss-logo.svg" alt="Логотип курса" class="footer-course-logo">
+        </a>
+        <a href="https://github.com/RenaSpb/" target="_blank" class="footer-link">GitHub</a>
+    </div>
+</footer>
 <audio id="audio-player"></audio>
 <script src="index.js"></script>
 </body>
