@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasta album</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+<div class="player">
+    <div class="player-image">
+        <img src="audio-player/photos/1.jpg" alt="Фото трека">
+    </div>
+    <div class="player-controls">
+        <div class="track-info">
+            <h2 class="track-title">Название трека</h2>
+            <p class="track-artist">Исполнитель</p>
+        </div>
+        <div class="controls">
+            <span class="material-symbols-outlined">skip_previous</span>
+            <span class="material-symbols-outlined">play_circle</span>
+            <span class="material-symbols-outlined">pause_circle</span>
+            <span class="material-symbols-outlined">skip_next</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="time">
+            <span class="current-time">0:00</span>
+            <span class="total-time">0:00</span>
+        </div>
+    </div>
+</div>
+<audio id="audio-player"></audio>
+<script src="index.js"></script>
+</body>
+</html>
