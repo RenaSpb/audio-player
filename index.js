@@ -23,6 +23,10 @@ const trackArtist = document.querySelector('.track-artist');
 const trackPhoto = document.querySelector('.player-image img');
 const nextButton = document.getElementById('skip-next');
 const previousButton = document.getElementById('skip-previous');
+const currentTime = document.querySelector('.current-time');
+const totalTime = document.querySelector('.total-time');
+const progressBar = document.querySelector('.progress');
+const progressContainer = document.querySelector('.progress-bar');
 
 let currentTrackIndex = 0
 
@@ -59,9 +63,30 @@ function playPreviousTrack() {
     startTrack(currentTrackIndex - 1)
 }
 
+function formatTime(timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function updateProgress() {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.style.width = `${progress}%`
+    currentTime.textContent = formatTime(audioPlayer.currentTime);
+}
+
+function setProgress(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audioPlayer.duration;
+    audioPlayer.currentTime = (clickX / width) * duration;
+}
+
+audioPlayer.addEventListener('loadedmetadata', () => {
+    totalTime.textContent = formatTime(audioPlayer.duration);
+})
 nextButton.addEventListener('click', playNextTrack);
 previousButton.addEventListener('click', playPreviousTrack);
-
 playButton.addEventListener('click', () => {
     if (audioPlayer.src) {
         togglePlayPause();
@@ -69,7 +94,8 @@ playButton.addEventListener('click', () => {
         startTrack(currentTrackIndex)
     }
 })
-
 audioPlayer.addEventListener('play', updatePlayButton)
 audioPlayer.addEventListener('pause', updatePlayButton)
 audioPlayer.addEventListener('ended', playNextTrack);
+audioPlayer.addEventListener('timeupdate', updateProgress);
+progressContainer.addEventListener('click', setProgress)
