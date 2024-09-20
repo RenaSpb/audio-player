@@ -153,6 +153,8 @@ button {
 
 @media (max-width: 600px) {
     .player {
-        height: 60vh;
+        width: 90%;
+        max-width: 400px;
+        height: auto;
     }
 }
