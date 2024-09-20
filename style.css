@@ -141,3 +141,10 @@ button {
     height: 30px;
     vertical-align: middle;
 }
+
+
+@media (max-width: 600px) {
+    .player {
+        width: 40vh;
+    }
+}
